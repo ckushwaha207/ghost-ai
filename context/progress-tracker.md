@@ -3,58 +3,38 @@
 Update this file whenever the current phase, active feature, or implementation state changes.
 
 ## Current Phase
-- In Progress
+
+- Feature 03: TBD
 
 ## Current Goal
-- Implement the design system and UI primitive components as specified:
-  - Install and configure `shadcn/ui`.
-  - Add shadcn components: Button, Card, Dialog, Input, Tabs, Textarea, ScrollArea.
-  - Install `lucide-react`.
-  - Create `libs/utils.ts` with a reusable `cn()` helper for merging Tailwind classes. 
-  - Ensure all components match the existing dark theme in `globals.css`. 
+
+- Define the immediate implementation goal here.
 
 ## Completed
-- Stripped `globals.css` down to only Tailwind directives.
-- Deleted all SVG files from the `public` folder (keeping favicon placeholder).
-- Replaced `page.tsx` with a minimal centered "Ghost AI" component.
-- Verified `page.module.css` does not exist.
-- Initialized `shadcn/ui` with Base UI (Nova preset).
-- Added required UI components:
-  - Button
-  - Card
-  - Dialog
-  - Input
-  - Tabs
-  - Textarea
-  - ScrollArea
-- Installed `lucide-react`.
-- Created `libs/utils.ts` with `cn()` helper using `clsx` and `tailwind-merge`.
-- Updated `globals.css` to include dark theme variants and required Tailwind utilities.
-- Ensured font loading and imports (via `next-themes` or Tailwind config) are in place.
+
+- Feature 01: Design System — shadcn/ui installed and configured for Tailwind v4, dark-only theme tokens in globals.css, Button/Card/Dialog/Input/Tabs/Textarea/ScrollArea components added to components/ui/, lucide-react installed, lib/utils.ts cn() helper in place. TypeScript compiles clean.
+- Feature 02: Editor Chrome — EditorNavbar (fixed top bar with PanelLeftOpen/PanelLeftClose toggle) and ProjectSidebar (fixed overlay, slides from left, Projects title + close button, My Projects/Shared tabs with empty states, New Project button) added to components/editor/. Dialog pattern confirmed ready via existing components/ui/dialog.tsx. TypeScript and ESLint clean.
 
 ## In Progress
-- None
+
+- None.
 
 ## Next Up
-- Create and export sample UI components that demonstrate usage of added primitives.
-- Add accessibility improvements and test component interactions.
-- Configure Tailwind theme colors (e.g., primary, secondary) to match design tokens.
-- Write component documentation or storybook entries.
-- Prepare for final review of design system compliance.
+
+- Feature 03 (TBD)
 
 ## Open Questions
-- Any additional design tokens or theming requirements?
-- Preferred method for component theming or customization (theme extensions, overlays, etc.)?
-- Need for runtime CSS injection or dynamic theming?
-- Any missing accessibility attributes or SEO considerations for new components?
+
+- None yet.
 
 ## Architecture Decisions
-- Adopted Nova presets for consistent spacing, radii, and utility classes.
-- Utilized `twMerge` and `clsx` for composable class handling across UI components.
-- Leveraged Tailwind's `dark:` variant strategy for consistent dark mode support.
-- Created a utility `cn()` helper to simplify class merging and maintain consistency.
+
+- shadcn/ui over Tailwind v4 (CSS-based token config via @theme inline in globals.css, no tailwind.config.js).
+- Dark-only theme: all shadcn :root variables set to dark values directly — no .dark class switching.
+- Do not modify generated components/ui/* files after shadcn installation.
 
 ## Session Notes
-- Cleanup completed successfully; project now has a minimal page and stripped CSS.
-- Ready to start designing UI with shadcn primitives.
-- Components imported without errors; no default light styling leakage observed.
+
+- Using Next.js 16.2.4 with React 19 and Tailwind CSS v4.
+- shadcn version 4.5.0 was used; it auto-detected Tailwind v4.
+- lucide-react ^1.11.0 installed as a direct dependency.
